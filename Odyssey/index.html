@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>追追追 · 你的个人观影收藏</title>
+<meta name="description" content="追追追是一款围绕海报墙、片刻、我超爱和追剧日历构建的个人观影收藏 App。追剧、收集、记录，都在这里。">
+<link rel="icon" type="image/png" href="assets/odyssey-logo.png">
+<style>
+  :root {
+    --pink: #F74F9F;
+    --pink-soft: #FFEAF5;
+    --yellow: #FFD400;
+    --ink: #111114;
+    --muted: #6B6B72;
+    --line: #ECECEF;
+    --bg: #FFFFFF;
+    --card: #FAFAFB;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  nav {
+    display: flex; align-items: center; gap: 12px;
+    padding: 22px 0;
+  }
+  nav img { width: 36px; height: 36px; border-radius: 10px; }
+  nav .name { font-weight: 700; font-size: 18px; letter-spacing: -0.2px; }
+  nav .name span { color: var(--muted); font-weight: 500; margin-left: 6px; font-size: 15px; }
+
+  /* hero */
+  .hero { text-align: center; padding: 56px 0 64px; }
+  .hero .badge {
+    display: inline-block; font-size: 13px; font-weight: 600; color: var(--pink);
+    background: var(--pink-soft); padding: 6px 14px; border-radius: 999px; margin-bottom: 28px;
+  }
+  .hero-logo {
+    width: 132px; height: 132px; border-radius: 30px; margin: 0 auto 28px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 6vw, 52px); line-height: 1.15; letter-spacing: -1px;
+    font-weight: 800; margin-bottom: 18px;
+  }
+  .hero h1 .accent { color: var(--pink); }
+  .hero .slogan {
+    display: inline-block; font-size: clamp(17px, 3vw, 20px); font-weight: 600;
+    color: var(--ink); margin-bottom: 20px;
+  }
+  .hero p.sub {
+    font-size: clamp(15px, 2.4vw, 17px); color: var(--muted);
+    max-width: 540px; margin: 0 auto 32px;
+  }
+  .cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: #fff; font-weight: 600; font-size: 15px;
+    padding: 13px 24px; border-radius: 999px; text-decoration: none;
+    cursor: pointer; opacity: 1;
+  }
+  .cta:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
+  .cta small { font-weight: 500; opacity: 0.7; }
+
+  /* features */
+  section.features { padding: 24px 0 8px; }
+  .features h2 { text-align: center; font-size: 26px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .features .lead { text-align: center; color: var(--muted); margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .feature {
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: 28px 26px; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .feature:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,0.06); }
+  .feature .ico {
+    font-size: 30px; line-height: 1; margin-bottom: 14px;
+  }
+  .feature h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .feature p { font-size: 14.5px; color: var(--muted); }
+
+  /* closing */
+  .closing { text-align: center; padding: 72px 0 40px; }
+  .closing h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .closing p { color: var(--muted); max-width: 480px; margin: 0 auto; }
+
+  /* footer */
+  footer { border-top: 1px solid var(--line); padding: 36px 0 48px; margin-top: 24px; }
+  footer .frow {
+    display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center;
+    justify-content: space-between; font-size: 13.5px; color: var(--muted);
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--pink); }
+  footer .beian { font-size: 12.5px; color: #9A9AA0; margin-top: 14px; }
+  footer .beian a { color: #9A9AA0; }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero { padding: 36px 0 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <img src="assets/odyssey-logo.png" alt="Odyssey logo">
+    <div class="name">追追追</div>
+  </nav>
+
+  <header class="hero">
+    <img class="hero-logo" src="assets/odyssey-logo.png" alt="追追追">
+    <h1>把每一部追过的剧<br><span class="accent">都收进自己的海报墙</span></h1>
+    <div class="slogan">追剧等于自虐</div>
+    <p class="sub">追追追是一款个人观影收藏 App。追剧、收集、记录——你和喜欢的故事之间，值得一个好好安放的地方。</p>
+    <a class="cta" href="https://apps.apple.com/cn/app/id6772548326" target="_blank" rel="noopener">App Store <small>立即下载</small></a>
+  </header>
+
+  <section class="features">
+    <h2>它能为你做什么</h2>
+    <p class="lead">四个核心功能，围绕「看」与「藏」展开</p>
+    <div class="grid">
+      <div class="feature">
+        <div class="ico">🖼️</div>
+        <h3>海报墙</h3>
+        <p>在追的、看过的剧集与电影，汇成一面属于你的海报墙，收藏一目了然。</p>
+      </div>
+      <div class="feature">
+        <div class="ico">✍️</div>
+        <h3>片刻</h3>
+        <p>随手记录看剧时的吐槽、心动与高光瞬间，让感受不只是看过就忘。</p>
+      </div>
+      <div class="feature">
+        <div class="ico">💗</div>
+        <h3>我超爱</h3>
+        <p>收藏最偏爱的角色与演员，跨作品聚合，喜欢的人一处可见。</p>
+      </div>
+      <div class="feature">
+        <div class="ico">📅</div>
+        <h3>追剧日历</h3>
+        <p>更新提醒、生日纪念，把追番的时间线一手握牢，不再错过。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <h2>认真对待每一次「上头」</h2>
+    <p>追追追不抓取、不社交、不打扰，<br>只专注帮你把热爱好好收藏下来。</p>
+  </section>
+
+  <footer>
+    <div class="frow">
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">鲁ICP备2026036710号-1</a>
+      <div style="display:flex; gap:24px;">
+        <a href="privacy.html">隐私政策</a>
+        <a href="mailto:odyssey.moment@outlook.com">联系我们</a>
+      </div>
+      <!-- 如完成公安联网备案，可在此追加公安备案号 -->
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woolpixels · 个人独立开发者产品</title>
+<meta name="description" content="Woolpixels 是个人独立开发者的产品页，做小而用心的 App。当前产品：追追追——你的个人观影收藏。">
+<link rel="icon" type="image/png" href="Odyssey/assets/odyssey-logo.png">
+<style>
+  :root {
+    --pink: #F74F9F;
+    --pink-soft: #FFEAF5;
+    --ink: #111114;
+    --muted: #6B6B72;
+    --line: #ECECEF;
+    --bg: #FFFFFF;
+    --card: #FAFAFB;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+    color: var(--ink); background: var(--bg); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  nav { display: flex; align-items: center; padding: 22px 0; }
+  nav .name { font-weight: 800; font-size: 19px; letter-spacing: -0.3px; }
+
+  .hero { padding: 64px 0 48px; }
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 50px); line-height: 1.15; letter-spacing: -1px;
+    font-weight: 800; margin-bottom: 18px;
+  }
+  .hero h1 .accent { color: var(--pink); }
+  .hero p { font-size: clamp(15px, 2.4vw, 17px); color: var(--muted); max-width: 520px; }
+
+  .products { padding: 16px 0 8px; }
+  .products .label {
+    font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 18px;
+  }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .product {
+    display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: 22px 24px; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  a.product:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,0.06); }
+  .product img { width: 60px; height: 60px; border-radius: 16px; flex-shrink: 0; }
+  .product .ptitle { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .product .pdesc { font-size: 14px; color: var(--muted); }
+  .product .parrow { margin-left: auto; color: var(--pink); font-weight: 700; }
+
+  .product.soon {
+    background: transparent; border-style: dashed; color: var(--muted);
+    justify-content: center; text-align: center; cursor: default; font-size: 14.5px;
+  }
+
+  footer { border-top: 1px solid var(--line); padding: 36px 0 48px; margin-top: 64px; }
+  footer .frow {
+    display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center;
+    justify-content: space-between; font-size: 13.5px; color: var(--muted);
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--pink); }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero { padding: 40px 0 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <div class="name">Woolpixels</div>
+  </nav>
+
+  <header class="hero">
+    <h1>做小而用心的 <span class="accent">App</span></h1>
+    <p>Woolpixels 是个人独立开发者的产品页。我相信好工具不必喧哗，只需安静地把一件事做好。</p>
+  </header>
+
+  <section class="products">
+    <div class="label">产品</div>
+    <div class="grid">
+      <a class="product" href="Odyssey/index.html">
+        <img src="Odyssey/assets/odyssey-logo.png" alt="追追追">
+        <div>
+          <div class="ptitle">追追追</div>
+          <div class="pdesc">你的个人观影收藏 · iOS</div>
+        </div>
+        <div class="parrow">→</div>
+      </a>
+      <div class="product soon">更多产品，敬请期待</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="frow">
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">鲁ICP备2026036710号-1</a>
+      <a href="mailto:odyssey.moment@outlook.com">联系我</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
