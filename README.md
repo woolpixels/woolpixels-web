@@ -7,6 +7,7 @@ Woolpixels 的静态官网，用于展示个人独立开发者产品与追追追
 - `index.html`: Woolpixels 首页，展示产品入口与网站备案号。
 - `Odyssey/index.html`: 追追追产品页，包含 App Store 下载入口。
 - `Odyssey/privacy.html`: 追追追隐私政策页。
+- `assets/mps-beian.png`: 公安联网备案图标。
 - `Odyssey/assets/odyssey-logo.png`: 追追追图标资源。
 
 ## 当前产品
@@ -23,26 +24,20 @@ Woolpixels 的静态官网，用于展示个人独立开发者产品与追追追
 网站页脚展示网站备案号：
 
 - 鲁ICP备2026036710号-1
+- 鲁公网安备37011602000405号
 
 App 备案号不在网站页脚展示。
 
 ## 发布方式
 
-当前项目是纯静态站点，可以直接部署到阿里云 ECS + Nginx。
+当前项目是纯静态站点，线上部署在阿里云 ECS。
 
-仓库内提供 `deploy.sh`，默认将当前目录同步到服务器的 Nginx 默认根目录：
+- ECS 公网 IP: `8.149.132.142`
+- 静态文件目录: `/opt/woolpixels-web`
+- 本机静态服务: `woolpixels-web.service`，监听 `8088`
+- 外层代理: Nginx Proxy Manager，负责 `woolpixels.cc` 的 `80/443`
 
-```bash
-/usr/share/nginx/html
-```
-
-首次使用前需要在 `deploy.sh` 中设置：
-
-```bash
-SERVER_IP="你的公网IP"
-```
-
-然后在本机执行：
+仓库内提供 `deploy.sh`，用于将当前目录同步到线上静态文件目录：
 
 ```bash
 ./deploy.sh

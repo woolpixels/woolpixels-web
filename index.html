@@ -64,6 +64,9 @@
     display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center;
     justify-content: space-between; font-size: 13.5px; color: var(--muted);
   }
+  footer .records { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+  footer .mps-beian { display: inline-flex; align-items: center; gap: 4px; }
+  footer .mps-beian img { width: 14px; height: 14px; display: block; }
   footer a { color: var(--muted); text-decoration: none; }
   footer a:hover { color: var(--pink); }
 
@@ -102,7 +105,13 @@
 
   <footer>
     <div class="frow">
-      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">鲁ICP备2026036710号-1</a>
+      <div class="records">
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">鲁ICP备2026036710号-1</a>
+        <a class="mps-beian" href="https://beian.mps.gov.cn/#/query/webSearch?code=37011602000405" rel="noreferrer" target="_blank">
+          <img src="assets/mps-beian.png" alt="公安备案图标">
+          <span>鲁公网安备37011602000405号</span>
+        </a>
+      </div>
       <a href="mailto:odyssey.moment@outlook.com">联系我</a>
     </div>
   </footer>
